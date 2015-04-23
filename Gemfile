@@ -3,10 +3,12 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
-# Use postgresql as the database for Active Record
-gem 'pg'
+# Devise gem
+gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+# Bootstrap formatting for rails
+gem 'bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -37,4 +39,22 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# RSpec testing
+group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
