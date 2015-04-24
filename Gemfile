@@ -43,6 +43,7 @@ gem 'spring',        group: :development
 # RSpec testing
 group :development, :test do
   # Use sqlite3 as the database for Active Record
+  gem 'guard-rspec', require: false
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'factory_girl_rails'

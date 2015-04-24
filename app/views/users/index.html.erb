@@ -1,0 +1,7 @@
+<h1>All Users</h1>
+
+<div class="list-group">
+  <% User.all.each do |user| %>
+    <%= link_to user.email, user, class: "list-group-item" %>
+  <% end %>
+</div>
