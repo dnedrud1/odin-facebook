@@ -17,6 +17,7 @@
 <% @user_posts.each do |post| %>
   <div class="well">
       <%= post.content %>
+      <%= render "shared/likes", :post => post %>
       <br>
   </div>
 <% end %>

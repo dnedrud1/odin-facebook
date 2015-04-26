@@ -1,0 +1,13 @@
+<% unless post.likes.empty? %>
+  <br>
+  <%= pluralize(post.likes.count, "person") %> liked this.
+<% end %>
+
+<br>
+
+<% if current_user.likes.any? { |like| like.post == post } %>
+  <% @like = current_user.likes.find_by(post_id: post.id) %>
+  <%= link_to "unlike", @like, method: :delete %>
+<% else %>
+  <%= link_to "like", likes_path(:post_id => post.id), method: :post %>
+<% end %>
