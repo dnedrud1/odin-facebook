@@ -2,6 +2,6 @@
 
 <div class="list-group">
   <% User.all.each do |user| %>
-    <%= link_to user.email, user, class: "list-group-item" %>
+    <%= link_to user.name, user, class: "list-group-item" %>
   <% end %>
 </div>
