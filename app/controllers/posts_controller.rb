@@ -7,10 +7,9 @@ class PostsController < ApplicationController
     
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = "Post posted!"
       redirect_to current_user
     else
-      render 'users/show'
+      render :template => "users/show"
     end
   end
   

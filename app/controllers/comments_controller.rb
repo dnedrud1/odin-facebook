@@ -7,8 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to request.referrer || root_url
     else
-      prior_page = Rails.application.routes.recognize_path(request.referrer)
-      render '#{prior_page[:controller]}/#{prior_page[:action]}'
+      redirect_to request.referrer || root_url, :flash => { :error => @comment.errors.full_messages.join(", ") }
     end
   end
   

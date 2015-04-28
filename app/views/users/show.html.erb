@@ -9,7 +9,7 @@
   <%= form_for(@post) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="field">
-      <%= f.text_area :content, placeholder: "Write what's on your mind...", class: "form-control", rows: "3" %>
+      <%= f.text_area :content, placeholder: "Write what's on your mind...", class: "form-control", rows: "3", :required => true, :maxlength => 400 %>
     </div>
     <%= f.submit "Post", class: "btn btn-primary btn-lg btn-block" %>
   <% end %>
@@ -22,7 +22,6 @@
     <p><strong><%= post.user.name %></strong></p>
     <%= post.content %>
     <%= render "shared/likes", :post => post %>
-    <br>
   </div>
     <%= render "shared/comments", :post => post %>
 <% end %>
