@@ -19,8 +19,10 @@
 
 <% @user_posts.each do |post| %>
   <div class="well">
-      <%= post.content %>
-      <%= render "shared/likes", :post => post %>
-      <br>
+    <p><strong><%= post.user.name %></strong></p>
+    <%= post.content %>
+    <%= render "shared/likes", :post => post %>
+    <br>
   </div>
+    <%= render "shared/comments", :post => post %>
 <% end %>
