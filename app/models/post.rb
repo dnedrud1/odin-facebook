@@ -4,6 +4,6 @@ class Post < ActiveRecord::Base
     has_many :comments, dependent: :destroy
     has_many :likes, dependent: :destroy
     
-    validates :content, presence: true, length: { maximum: 400 }, length: { minimum: 6 }
+    validates :content, presence: true, length: { maximum: 400 }
     validates :user_id, presence: true
 end

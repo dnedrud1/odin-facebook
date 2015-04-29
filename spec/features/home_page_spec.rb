@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 
-describe 'CreateBooking' do
+describe 'Homepage' do
   
   before do
     visit root_path
