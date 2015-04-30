@@ -10,5 +10,17 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   
+  has_and_belongs_to_many :friends, 
+                          class_name: "User", 
+                          join_table: :friendships, 
+                          foreign_key: :user_id, 
+                          association_foreign_key: :friend_user_id
+  
+  has_and_belongs_to_many :friend_requests,
+                          class_name: "User",
+                          join_table: :requests,
+                          foreign_key: :requested_id, 
+                          association_foreign_key: :requestor_id
+  
   validates :name, presence: true, length: { maximum: 50 }
 end

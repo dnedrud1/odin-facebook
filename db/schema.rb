@@ -11,12 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427161945) do
+ActiveRecord::Schema.define(version: 20150429235758) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
     t.integer  "user_id"
     t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "friendships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,6 +38,13 @@ ActiveRecord::Schema.define(version: 20150427161945) do
   create_table "posts", force: true do |t|
     t.text     "content"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "requests", force: true do |t|
+    t.integer  "requestor_id"
+    t.integer  "requested_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
