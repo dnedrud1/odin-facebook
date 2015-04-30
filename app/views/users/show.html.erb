@@ -13,6 +13,14 @@
     </div>
     <%= f.submit "Post", class: "btn btn-primary btn-lg btn-block" %>
   <% end %>
+<% else %>
+  <% if @user.friend_requests.include?(current_user) %>
+    <button type="button" class="btn btn-info" disabled="disabled">Friend request pending</button>
+    <br>
+  <% elsif !@user.friends.include?(current_user) %>
+    <%= link_to "Befriend", requests_path(:user_id => @user.id), method: :post, class: "btn btn-info", role: "button" %>
+    <br>
+  <% end %>
 <% end %>
 
 <br>
