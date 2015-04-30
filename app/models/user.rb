@@ -23,4 +23,13 @@ class User < ActiveRecord::Base
                           association_foreign_key: :requestor_id
   
   validates :name, presence: true, length: { maximum: 50 }
+  
+  def create_friendship(user)
+    self.friends << user
+    user.friends << self
+  end
+  
+  def request_friend(user)
+    user.friend_requests << self
+  end
 end
