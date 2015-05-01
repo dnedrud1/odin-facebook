@@ -1,6 +1,10 @@
 class FriendshipsController < ApplicationController
   before_filter :authenticate_user!
   
+  def index
+    @friends = current_user.friends
+  end
+  
   def create
     current_user.create_friendship(User.find(params[:requestor_id]))
     @request = Request.find(params[:request_id])

@@ -1,2 +1,19 @@
-<h1>Facebook Rails Application</h1>
-<p>A work in progress!</p>
+
+<% if user_signed_in? %>
+
+  <h1>Friendfeed</h1>
+  <% @group_posts.each do |post| %>
+    <div class="well">
+      <p><strong><%= post.user.name %></strong></p>
+      <%= post.content %>
+      <%= render "shared/likes", :post => post %>
+    </div>
+      <%= render "shared/comments", :post => post %>
+  <% end %>
+  
+<% else %>
+
+  <h1>A recreation of Facebook written in Ruby on Rails</h1>
+  <p>Sign in to use it!</p
+  
+<% end %>

@@ -32,4 +32,9 @@ class User < ActiveRecord::Base
   def request_friend(user)
     user.friend_requests << self
   end
+  
+  def feed
+    all_ids = self.friends.map { |friend| friend.id } + [self.id]
+    Post.where(user_id: all_ids).sort_by { |p| p.created_at }.reverse
+  end
 end
