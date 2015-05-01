@@ -13,6 +13,14 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav pull-right">
         <% if user_signed_in? %>
+        
+          <% if current_user.friend_requests.any? %>
+            <% @number_notifications = current_user.friend_requests.count %>
+            <li><%= link_to "Notifications", requests_path, :data => {:toggle=>"tooltip"}, "data-placement" => "bottom", "data-original-title" => "#{@number_notifications}" %></li>
+          <% else %>
+            <li><%= link_to "Notifications", requests_path %>
+          <% end %>
+          
           <li><%= link_to "All Users", users_path %></li>
           <li><%= link_to "Profile", current_user %></li>
           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>

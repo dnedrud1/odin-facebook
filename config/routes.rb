@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :posts,     only: [:create]
   resources :likes,     only: [:create, :destroy]
   resources :comments,  only: [:create]
-  resources :requests,  only: [:create, :destroy]
+  resources :requests,  only: [:create, :destroy, :index]
   resources :friendships,  only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

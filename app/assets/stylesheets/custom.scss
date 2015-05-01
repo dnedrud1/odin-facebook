@@ -59,3 +59,20 @@ body {
 .comment-well {
   margin-left: 20px;
 }
+
+/*Tooltips*/
+
+.tooltip.bottom .tooltip-arrow {
+  top: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-bottom-color: red;
+  border-width: 0 5px 5px;
+}
+
+.tooltip-inner {
+  font-weight: bold;
+  color: white;
+  background: red;
+  border: solid 1px red;
+}
