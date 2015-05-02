@@ -29,6 +29,7 @@ describe 'UsersContent' do
       click_link "Accept"
     end.to change{ Request.count }.by(-1)
     
+    Friendship.count.should be(2)
     page.should have_content("Friendship created!")
     @user.friends.should include(@another_user)
     @another_user.friends.should include(@user)

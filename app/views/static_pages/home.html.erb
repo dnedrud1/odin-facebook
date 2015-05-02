@@ -7,6 +7,10 @@
       <p><strong><%= post.user.name %></strong></p>
       <%= post.content %>
       <%= render "shared/likes", :post => post %>
+      <% if current_user == post.user %>
+      | <%= link_to "delete", post, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+      <% end %>
     </div>
       <%= render "shared/comments", :post => post %>
   <% end %>
