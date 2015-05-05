@@ -1,0 +1,37 @@
+<h1>Optional Profile Info for <%= current_user.name %></h1>
+
+<%= form_for(@profile) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  
+  <div class="form-group">
+    <%= f.label :birthday %>
+    <%= f.date_field :birthday, class: 'form-control' %>
+  
+    <%= f.label :home_city %>
+    <%= f.text_field :home_city, class: 'form-control' %>
+    
+    <%= f.label("Gender") %>
+    <div class="radiostyle">
+      <%= f.radio_button(:gender, "Male") %>
+      <%= f.label(:gender_male, "Male") %>
+      <%= f.radio_button(:gender, "Female") %>
+      <%= f.label(:gender_female, "Female") %>
+      <%= f.radio_button(:gender, "Other") %>
+      <%= f.label(:gender_other, "Other") %>
+    </div>
+      <%= f.label("Relationship Status") %>
+    <div class="radiostyle" >
+      <%= f.radio_button(:relationship_status, "Single") %>
+      <%= f.label(:relationship_status_single, "Single") %>
+      <%= f.radio_button(:relationship_status, "In a relationship") %>
+      <%= f.label(:relationship_status_in_a_relationship, "In a relationship") %>
+      <%= f.radio_button(:relationship_status, "Married") %>
+      <%= f.label(:relationship_status_married, "Married") %>
+      <%= f.radio_button(:relationship_status, "It's complicated") %>
+      <%= f.label(:relationship_status_its_complicated, "It's complicated") %>
+    </div>
+
+  </div>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

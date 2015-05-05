@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :comments,  only: [:create, :destroy]
   resources :requests,  only: [:create, :destroy, :index]
   resources :friendships,  only: [:create, :destroy, :index]
+  resources :profiles,  only: [:edit, :create, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
