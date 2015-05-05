@@ -1,7 +1,8 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
   
-  validates :birthday, date: true
+  validates :birthday, date: { after: Proc.new { Time.now - 130.years },
+                               before: Proc.new { Time.now }, allow_blank: true }
   validates :home_city, length: { maximum: 100 }
   validates :gender, length: { maximum: 10 }
   validates :relationship_status, length: { maximum: 50 }
