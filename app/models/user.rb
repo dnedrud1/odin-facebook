@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
                           foreign_key: :requested_id, 
                           association_foreign_key: :requestor_id
   
-  validates :name, presence: true, length: { maximum: 50 }
+  #validates :name, presence: true, length: { maximum: 50 }
   
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
