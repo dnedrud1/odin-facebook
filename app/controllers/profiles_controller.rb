@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :authenticate_user!
+  before_action :correct_user,   only: :edit
   
   def edit
     @user = User.find(params[:id])
@@ -28,6 +29,12 @@ class ProfilesController < ApplicationController
   
     def profile_params
       params.require(:profile).permit(:birthday, :home_city, :gender, :relationship_status)
+    end
+    
+    # Confirms the correct user.
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user == @user
     end
     
 end

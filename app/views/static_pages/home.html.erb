@@ -16,8 +16,9 @@
   <% end %>
   
 <% else %>
-
-  <h1>A recreation of Facebook written in Ruby on Rails</h1>
-  <p>Sign in to use it!</p
+  <div class = "homepage">
+    <h1>A recreation of Facebook written in Ruby on Rails</h1>
+    <p><%= link_to "Sign up", new_user_registration_path %> to use it!</p>
+  </div>
   
 <% end %>

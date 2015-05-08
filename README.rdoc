@@ -2,3 +2,8 @@
 
 This is an application built in Ruby on Rails meant to mimic the functionality of facebook.
 http://www.theodinproject.com/ruby-on-rails/final-project
+
+to do:
+-add more tests (especially controller)
+-add pagination
+-Titles!

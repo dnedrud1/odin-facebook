@@ -42,4 +42,11 @@ describe 'UserProfile' do
     page.should have_content("Gender: Female")
   end
   
+  it 'should not allow user to edit another user profile' do
+    @another_user = FactoryGirl.create(:another_user)
+    
+    visit edit_profile_path(@another_user)
+    expect(page.current_path).to eq root_path
+  end
+  
 end
