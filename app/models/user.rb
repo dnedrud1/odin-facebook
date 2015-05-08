@@ -27,10 +27,10 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
   
   def self.from_omniauth(auth)
-    where(email: auth.info.email, provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       # user.provider   = auth.provider
       # user.uid        = auth.uid
-      # user.email = auth.info.email
+      user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
     end
