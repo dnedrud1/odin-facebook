@@ -1,7 +1,13 @@
 <h1>All Users</h1>
 
-<div class="list-group">
-  <% User.all.each do |user| %>
-    <%= link_to user.name, user, class: "list-group-item" %>
+<% User.all.each do |user| %>
+  <p>
+  <a href=<%= user_path(user) %> class="btn btn-default" role="button"><%= user.name %>
+  <% if user.friend_requests.include?(current_user) %>
+    <a role="button" class="btn btn-xs btn-info btn-margins" disabled="disabled">Friend request pending</a>
+  <% elsif !user.friends.include?(current_user) && !(user == current_user)  && !(current_user.friend_requests.include?(user)) %>
+    <%= link_to "Befriend", requests_path(:user_id => user.id), method: :post, class: "btn btn-xs btn-info btn-margins", role: "button" %>
   <% end %>
-</div>
+  </a>
+  </p>
+<% end %>

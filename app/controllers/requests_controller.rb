@@ -9,7 +9,7 @@ class RequestsController < ApplicationController
     @user = User.find(params[:user_id])
     current_user.request_friend(@user)
     flash[:success] = "Friend request sent!"
-    redirect_to @user
+    redirect_to request.referrer || root_url
   end
   
   def destroy

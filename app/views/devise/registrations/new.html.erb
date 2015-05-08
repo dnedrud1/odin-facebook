@@ -26,9 +26,13 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <br>
+  
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
+<br>
+<%= link_to image_tag('f-login-large.png', alt: 'Facebook login'), user_omniauth_authorize_path(:facebook) %>
+<br>
 <%= render "devise/shared/links" %>

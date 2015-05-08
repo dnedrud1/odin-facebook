@@ -34,6 +34,10 @@ gem 'jquery-turbolinks'
 
 gem 'date_validator'
 
+gem 'omniauth-facebook'
+
+gem "figaro"
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

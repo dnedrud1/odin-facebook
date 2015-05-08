@@ -2,8 +2,8 @@
 <br>
 
 <% @requests.each do |requestor| %>
-  <h3><%= requestor.name %></h3>
+  <h3><%= requestor.name %>
   <% @request_id = Request.find_by(requestor_id: requestor.id, requested_id: current_user.id).id %>
   <%= link_to "Accept", friendships_path(:requestor_id => requestor.id, :request_id => @request_id), method: :post, class: "btn btn-success", role: "button" %>
-  <%= link_to "Reject", request_path(:id => @request_id), method: :delete, class: "btn btn-danger", role: "button" %>
+  <%= link_to "Reject", request_path(:id => @request_id), method: :delete, class: "btn btn-danger", role: "button" %></h3>
 <% end %>
