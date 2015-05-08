@@ -16,6 +16,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
   
   def failure
-    redirect_to root_path
+    redirect_to cancel_user_registration_path
   end
 end
