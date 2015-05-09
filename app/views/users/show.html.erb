@@ -1,3 +1,5 @@
+<% provide(:title, @user.name) %>
+
 <h1><%= gravatar_for @user %> Profile for <%= @user.name %></h1>
 
 <% if current_user == @user %>

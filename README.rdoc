@@ -6,4 +6,3 @@ http://www.theodinproject.com/ruby-on-rails/final-project
 to do:
 -add more tests (especially controller)
 -add pagination
--Titles!
