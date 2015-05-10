@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to current_user
     else
-      render :template => "users/show"
+      redirect_to request.referrer || root_url, :flash => { :error => @post.errors.full_messages.join(", ") }
     end
   end
   

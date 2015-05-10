@@ -25,7 +25,9 @@ describe 'UsersContent' do
     
     expect do
       fill_in 'post_content', :with => ''
-      click_button "Post"
+      within(".post_container") do
+        click_button "Post"
+      end
     end.to_not change{ Post.count }
   end
   

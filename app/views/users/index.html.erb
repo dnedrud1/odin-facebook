@@ -2,7 +2,9 @@
 
 <h1>All Users</h1>
 
-<% User.all.each do |user| %>
+<%= will_paginate %>
+
+<% @users.each do |user| %>
   <p>
   <a href=<%= user_path(user) %> class="btn btn-default" role="button"><%= user.name %>
   <% if user.friend_requests.include?(current_user) %>
@@ -13,3 +15,5 @@
   </a>
   </p>
 <% end %>
+
+<%= will_paginate %>

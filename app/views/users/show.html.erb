@@ -23,6 +23,8 @@
   <p><strong>Relationship Status: </strong><%= @user.profile.relationship_status %></p>
   <% end %>
 <% end %>
+
+<div class = "post_container" >
   
 <% if current_user == @user %>
   <br>
@@ -43,6 +45,8 @@
   <% end %>
 <% end %>
 
+</div>
+
 <br>
 
 <% @user_posts.each do |post| %>
@@ -57,3 +61,5 @@
   </div>
     <%= render "shared/comments", :post => post %>
 <% end %>
+
+<%= will_paginate @user_posts %>

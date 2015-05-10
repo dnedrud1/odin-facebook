@@ -61,6 +61,6 @@ class User < ActiveRecord::Base
   
   def feed
     all_ids = self.friends.map { |friend| friend.id } + [self.id]
-    Post.where(user_id: all_ids).sort_by { |p| p.created_at }.reverse
+    Post.where(user_id: all_ids)
   end
 end

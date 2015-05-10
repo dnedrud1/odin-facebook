@@ -2,6 +2,7 @@
 <% if user_signed_in? %>
 
   <h1>Friendfeed</h1>
+  
   <% @group_posts.each do |post| %>
     <div class="well">
       <p><strong><%= post.user.name %></strong></p>
@@ -14,6 +15,7 @@
     </div>
       <%= render "shared/comments", :post => post %>
   <% end %>
+  <%= will_paginate @group_posts %>
   
 <% else %>
   <div class = "homepage">

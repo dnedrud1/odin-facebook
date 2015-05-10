@@ -2,8 +2,10 @@
 
 <h1>Friends</h1>
 
+<%= will_paginate @friends %>
 <div class="list-group">
   <% @friends.each do |user| %>
     <%= link_to user.name, user, class: "list-group-item" %>
   <% end %>
 </div>
+<%= will_paginate @friends %>

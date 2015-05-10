@@ -4,11 +4,11 @@ class UsersController < ApplicationController
   def show
     @post  = current_user.posts.build
     @user = User.find(params[:id])
-    @user_posts = @user.posts.all.sort_by { |p| p.created_at }.reverse
+    @user_posts = @user.posts.paginate(page: params[:page]).order('created_at DESC')
     
   end
   
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 end
